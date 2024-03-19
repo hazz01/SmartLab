@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:smartlab/Peminjaman.dart';
+import 'package:smartlab/login.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +35,7 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = const [];
+  List<Widget> pages = const [Peminjaman(), Login()];
 
   @override
   Widget build(BuildContext context) {
