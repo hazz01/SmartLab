@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:smartlab/HomePage.dart';
 import 'package:smartlab/Peminjaman.dart';
 import 'package:smartlab/login.dart';
 
@@ -35,7 +36,11 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = const [Peminjaman(), Login()];
+  List<Widget> pages = const [
+    Home(),
+    Peminjaman(),
+    Login(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -75,16 +80,16 @@ class _RootPageState extends State<RootPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.thermostat),
-            label: 'Temperature',
+            icon: Icon(Icons.account_tree),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.water_drop_rounded),
-            label: 'Water Discharge',
+            icon: Icon(Icons.home),
+            label: 'Pinjam',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.health_and_safety),
-            label: 'Vitamin',
+            icon: Icon(Icons.person),
+            label: 'Akun',
           ),
         ],
         currentIndex: currentPage,

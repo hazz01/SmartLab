@@ -1,3 +1,4 @@
+import 'package:smartlab/main.dart';
 import 'package:flutter/material.dart';
 import 'package:calendar_appbar/calendar_appbar.dart';
 
@@ -9,6 +10,8 @@ class Peminjaman extends StatefulWidget {
 }
 
 class _PeminjamanState extends State<Peminjaman> {
+  int currentPage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,8 +32,10 @@ class _PeminjamanState extends State<Peminjaman> {
               RichText(
                   text: TextSpan(
                 text: 'On Going On:',
-                style:
-                    TextStyle(fontWeight: FontWeight.w800, fontSize: 20, color:  Colors.black),
+                style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20,
+                    color: Colors.black),
               ))
             ],
           ),
