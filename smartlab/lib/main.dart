@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smartlab/HomePage.dart';
 import 'package:smartlab/Peminjaman.dart';
 import 'package:smartlab/login.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 Future<void> main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -9,20 +10,64 @@ Future<void> main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.blue,
       ),
-      home: const RootPage(),
+      home: SplashScreen(),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Simulate some asynchronous operation (e.g., fetching data)
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginPage()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white, // Set your splash screen background color
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Add your logo or other splash screen content here
+            Image.asset('images/SMK-Telkom-Malang 1.png',
+                width: 200, height: 200),
+            const SizedBox(height: 20),
+            // Loading animation using flutter_spinkit
+            SpinKitWave(
+              color: Colors.white,
+              size: 50.0,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -36,11 +81,7 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = const [
-    Home(),
-    Peminjaman(),
-    Login(),
-  ];
+  List<Widget> pages = [Home(), Peminjaman(), MyApp()];
 
   @override
   Widget build(BuildContext context) {

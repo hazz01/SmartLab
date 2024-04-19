@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
   }
 
   void startCountdown() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (countdownValue > 0) {
         setState(() {
           countdownValue--;
@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
         toolbarHeight: 100,
         title: Text(
           'Hello Ryo\nReady to use $useLab',
-          style: TextStyle(),
+          style: const TextStyle(),
           textAlign: TextAlign.start,
         ),
         backgroundColor: const Color(0xFFE53E3C),
@@ -163,22 +163,23 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
+                // ignore: unnecessary_string_interpolations
                 '$useLab',
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 39,
                     fontWeight: FontWeight.w500,
                     color: Colors.black54),
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 45,
           ),
           Row(
@@ -230,7 +231,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
               Container(
                 width: 180,
                 padding: const EdgeInsets.fromLTRB(37.0, 14.0, 37.0, 14.0),
@@ -279,7 +280,7 @@ class _HomeState extends State<Home> {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
@@ -303,7 +304,7 @@ class _HomeState extends State<Home> {
                 ),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Icon(Icons.add_a_photo, size: 30, color: Colors.red),
@@ -318,11 +319,11 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                         height: 10), // Jarak antara tulisan "Date" dan tanggal
                     GestureDetector(
                       onTap: _selectFile,
-                      child: Text(
+                      child: const Text(
                         'File',
                         style: TextStyle(
                             fontSize: 20,
@@ -335,7 +336,7 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              SizedBox(width: 15),
+              const SizedBox(width: 15),
               Container(
                 width: 180,
                 padding: const EdgeInsets.fromLTRB(37.0, 14.0, 37.0, 14.0),
